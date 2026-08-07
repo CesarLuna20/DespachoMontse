@@ -64,7 +64,7 @@ function App() {
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) setIntro(false);
-    const timer = window.setTimeout(() => setIntro(false), 3400);
+    const timer = window.setTimeout(() => setIntro(false), 3910);
     return () => window.clearTimeout(timer);
   }, []);
 

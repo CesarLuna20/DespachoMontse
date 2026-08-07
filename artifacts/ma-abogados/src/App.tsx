@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { ArrowDownRight, ArrowUpRight, Check, ChevronDown, Clock3, FileText, Gavel, Landmark, Menu, Phone, Scale, ShieldCheck, X } from 'lucide-react';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import emblemReference from '@assets/image_1786079626761.png';
 
 type Practice = {
@@ -59,6 +60,7 @@ function App() {
   const [intro, setIntro] = useState(true);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [sent, setSent] = useState(false);
+  const [submitIntro, setSubmitIntro] = useState(false);
   const [openPractice, setOpenPractice] = useState<string | null>(null);
 
   useEffect(() => {
@@ -69,14 +71,21 @@ function App() {
   }, []);
 
   const closeMenu = () => setMobileMenu(false);
+  const completeSubmission = () => {
+    setSubmitIntro(false);
+    setSent(true);
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSent(true);
+    setSent(false);
+    setSubmitIntro(true);
+    window.setTimeout(completeSubmission, 3910);
   };
 
   return (
     <div className="site-noise overflow-x-hidden bg-[#f1eee6] text-[#1e2435]">
-      {intro && <IntroScreen onSkip={() => setIntro(false)} />}
+      {submitIntro ? <IntroScreen onSkip={completeSubmission} /> : intro && <IntroScreen onSkip={() => setIntro(false)} />}
       <header className="absolute left-0 right-0 top-0 z-40">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-5 lg:px-10">
           <a href="#inicio" onClick={closeMenu} className="focus-ring flex items-center gap-3" data-testid="link-brand">
@@ -189,9 +198,9 @@ function App() {
         <section id="contacto" className="bg-[#f1eee6] px-6 py-24 md:py-36 lg:px-10">
           <div className="mx-auto max-w-[1280px]">
             <div className="grid gap-16 md:grid-cols-[.8fr_1.2fr] md:gap-24">
-              <div><p className="eyebrow">Contacto</p><h2 className="display mt-7 text-5xl leading-[.98] tracking-[-.04em] md:text-7xl">Hablemos<br /><em>con calma.</em></h2><p className="mt-8 max-w-[270px] text-[13px] leading-[1.7] text-[#60636c]">La primera conversación es para entender. Cuéntenos lo esencial y le responderemos en un plazo de 24 horas hábiles.</p><div className="mt-9 space-y-4 text-[12px] text-[#4f5360]"><a href="mailto:hola@mayabogados.com" className="focus-ring flex items-center gap-3 hover:text-[#9a702b]" data-testid="link-email"><span className="grid h-7 w-7 place-items-center border border-[#c9c3b5]"><ArrowUpRight size={13} /></span>hola@mayabogados.com</a><a href="tel:+525555017428" className="focus-ring flex items-center gap-3 hover:text-[#9a702b]" data-testid="link-phone"><span className="grid h-7 w-7 place-items-center border border-[#c9c3b5]"><Phone size={13} /></span>+52 55 5501 7428</a></div></div>
+              <div><p className="eyebrow">Contacto</p><h2 className="display mt-7 text-5xl leading-[.98] tracking-[-.04em] md:text-7xl">Hablemos<br /><em>con calma.</em></h2><p className="mt-8 max-w-[270px] text-[13px] leading-[1.7] text-[#60636c]">La primera conversación es para entender. Cuéntenos lo esencial y le responderemos en un plazo de 24 horas hábiles.</p><div className="mt-9 space-y-4 text-[12px] text-[#4f5360]"><a href="mailto:hola@mayabogados.com" className="focus-ring flex items-center gap-3 hover:text-[#9a702b]" data-testid="link-email"><span className="grid h-7 w-7 place-items-center border border-[#c9c3b5]"><ArrowUpRight size={13} /></span>hola@mayabogados.com</a><a href="tel:+525555017428" className="focus-ring flex items-center gap-3 hover:text-[#9a702b]" data-testid="link-phone"><span className="grid h-7 w-7 place-items-center border border-[#c9c3b5]"><Phone size={13} /></span>+52 55 5501 7428</a></div><div className="mt-10 grid max-w-[290px] grid-cols-2 gap-3"><a href="https://wa.me/525555017428?text=Hola%20M%26A%20Abogados%2C%20me%20gustar%C3%ADa%20recibir%20orientaci%C3%B3n." target="_blank" rel="noreferrer" className="focus-ring group flex items-center gap-3 border border-[#c9c3b5] p-3 text-[11px] text-[#4f5360] transition-colors hover:border-[#1e2435] hover:bg-[#1e2435] hover:text-[#f1eee6]" data-testid="link-whatsapp"><FaWhatsapp size={19} className="text-[#9a702b] transition-colors group-hover:text-[#e4bf6a]" /><span><strong className="block text-[10px] font-semibold">WhatsApp</strong><span className="text-[9px] text-[#777a83] group-hover:text-[#c9cbd0]">Hablemos por aquí</span></span></a><a href="https://www.instagram.com/ma.abogados/" target="_blank" rel="noreferrer" className="focus-ring group flex items-center gap-3 border border-[#c9c3b5] p-3 text-[11px] text-[#4f5360] transition-colors hover:border-[#1e2435] hover:bg-[#1e2435] hover:text-[#f1eee6]" data-testid="link-instagram"><FaInstagram size={19} className="text-[#9a702b] transition-colors group-hover:text-[#e4bf6a]" /><span><strong className="block text-[10px] font-semibold">Instagram</strong><span className="text-[9px] text-[#777a83] group-hover:text-[#c9cbd0]">Conózcanos mejor</span></span></a></div></div>
               <div className="border-t border-[#cbc6b9] pt-7">
-                {sent ? <div className="flex min-h-[360px] flex-col items-start justify-center"><div className="grid h-12 w-12 place-items-center bg-[#1e2435] text-[#e4bf6a]"><Check size={22} /></div><h3 className="display mt-7 text-4xl">Recibimos su mensaje.</h3><p className="mt-3 max-w-[390px] text-[14px] leading-[1.6] text-[#61636b]">Gracias por confiar en M&A. Un integrante de nuestro equipo se pondrá en contacto pronto.</p><button onClick={() => setSent(false)} className="focus-ring mt-8 border-b border-[#9a702b] pb-1 text-[11px] font-semibold text-[#9a702b]" data-testid="button-send-another">Enviar otro mensaje</button></div> : <form onSubmit={handleSubmit} className="space-y-7" data-testid="form-contacto"><div className="grid gap-7 sm:grid-cols-2"><label className="block"><span className="mono text-[9px] text-[#737580]">Su nombre</span><input required name="name" placeholder="Nombre completo" className="focus-ring mt-3 w-full border-0 border-b border-[#bdb8ac] bg-transparent px-0 pb-3 text-[14px] placeholder:text-[#98999c] focus:border-[#9a702b] focus:outline-none" data-testid="input-name" /></label><label className="block"><span className="mono text-[9px] text-[#737580]">Correo electrónico</span><input required type="email" name="email" placeholder="nombre@correo.com" className="focus-ring mt-3 w-full border-0 border-b border-[#bdb8ac] bg-transparent px-0 pb-3 text-[14px] placeholder:text-[#98999c] focus:border-[#9a702b] focus:outline-none" data-testid="input-email" /></label></div><label className="block"><span className="mono text-[9px] text-[#737580]">¿En qué podemos ayudarle?</span><textarea required name="message" rows={4} placeholder="Cuéntenos brevemente su situación..." className="focus-ring mt-3 w-full resize-none border-0 border-b border-[#bdb8ac] bg-transparent px-0 pb-3 text-[14px] placeholder:text-[#98999c] focus:border-[#9a702b] focus:outline-none" data-testid="input-message" /></label><div className="flex flex-col justify-between gap-5 pt-2 sm:flex-row sm:items-center"><p className="flex items-center gap-2 text-[11px] text-[#71737c]"><Clock3 size={14} className="text-[#9a702b]" /> Respuesta en 24 horas hábiles</p><button type="submit" className="focus-ring flex items-center justify-center gap-3 bg-[#1e2435] px-6 py-4 text-[11px] font-semibold text-[#f1eee6] transition-colors hover:bg-[#9a702b]" data-testid="button-submit-contact">Enviar consulta <ArrowUpRight size={15} /></button></div></form>}
+                {sent ? <div className="flex min-h-[360px] flex-col items-start justify-center"><div className="grid h-12 w-12 place-items-center bg-[#1e2435] text-[#e4bf6a]"><Check size={22} /></div><h3 className="display mt-7 text-4xl">Tu situación se ha enviado correctamente.</h3><p className="mt-3 max-w-[390px] text-[14px] leading-[1.6] text-[#61636b]">Te contactaremos a la brevedad.</p><button onClick={() => setSent(false)} className="focus-ring mt-8 border-b border-[#9a702b] pb-1 text-[11px] font-semibold text-[#9a702b]" data-testid="button-send-another">Enviar otro mensaje</button></div> : <form onSubmit={handleSubmit} className="space-y-7" data-testid="form-contacto"><div className="grid gap-7 sm:grid-cols-2"><label className="block"><span className="mono text-[9px] text-[#737580]">Su nombre</span><input required name="name" placeholder="Nombre completo" className="focus-ring mt-3 w-full border-0 border-b border-[#bdb8ac] bg-transparent px-0 pb-3 text-[14px] placeholder:text-[#98999c] focus:border-[#9a702b] focus:outline-none" data-testid="input-name" /></label><label className="block"><span className="mono text-[9px] text-[#737580]">Su teléfono</span><input required type="tel" name="phone" placeholder="+52 55 5501 7428" inputMode="tel" className="focus-ring mt-3 w-full border-0 border-b border-[#bdb8ac] bg-transparent px-0 pb-3 text-[14px] placeholder:text-[#98999c] focus:border-[#9a702b] focus:outline-none" data-testid="input-phone" /></label></div><label className="block"><span className="mono text-[9px] text-[#737580]">¿En qué podemos ayudarle?</span><textarea required name="message" rows={4} placeholder="Cuéntenos brevemente su situación..." className="focus-ring mt-3 w-full resize-none border-0 border-b border-[#bdb8ac] bg-transparent px-0 pb-3 text-[14px] placeholder:text-[#98999c] focus:border-[#9a702b] focus:outline-none" data-testid="input-message" /></label><div className="flex flex-col justify-between gap-5 pt-2 sm:flex-row sm:items-center"><p className="flex items-center gap-2 text-[11px] text-[#71737c]"><Clock3 size={14} className="text-[#9a702b]" /> Respuesta en 24 horas hábiles</p><button type="submit" className="focus-ring flex items-center justify-center gap-3 bg-[#1e2435] px-6 py-4 text-[11px] font-semibold text-[#f1eee6] transition-colors hover:bg-[#9a702b]" data-testid="button-submit-contact">Enviar consulta <ArrowUpRight size={15} /></button></div></form>}
               </div>
             </div>
           </div>

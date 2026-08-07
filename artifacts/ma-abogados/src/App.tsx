@@ -209,10 +209,6 @@ function App() {
 
       <footer className="bg-[#171c2b] px-6 pb-8 pt-14 text-[#e6e0d2] lg:px-10">
         <div className="mx-auto max-w-[1280px]">
-          <div className="flex flex-col justify-between gap-12 border-b border-[#3c4250] pb-14 md:flex-row md:items-end">
-            <div><Monogram light /><p className="mt-7 max-w-[250px] text-[12px] leading-[1.65] text-[#9ea2ab]">Claridad legal para decisiones que importan.</p></div>
-            <div className="grid grid-cols-2 gap-x-16 gap-y-4 text-[12px] text-[#b6b8bd]"><a href="#firma" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-firma">La firma</a><a href="#practicas" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-practicas">Áreas de práctica</a><a href="#metodo" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-metodo">Nuestro método</a><a href="#contacto" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-contacto">Contacto</a></div>
-          </div>
           <div className="grid gap-8 border-b border-[#3c4250] py-10 md:grid-cols-[.65fr_1.35fr] md:items-center">
             <div>
               <p className="eyebrow !text-[#e4bf6a]">Dónde encontrarnos</p>
@@ -233,6 +229,10 @@ function App() {
                 data-testid="map-location"
               />
             </div>
+          </div>
+          <div className="flex flex-col justify-between gap-12 border-b border-[#3c4250] py-14 md:flex-row md:items-end">
+            <div><Monogram light /><p className="mt-7 max-w-[250px] text-[12px] leading-[1.65] text-[#9ea2ab]">Claridad legal para decisiones que importan.</p></div>
+            <div className="grid grid-cols-2 gap-x-16 gap-y-4 text-[12px] text-[#b6b8bd]"><a href="#firma" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-firma">La firma</a><a href="#practicas" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-practicas">Áreas de práctica</a><a href="#metodo" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-metodo">Nuestro método</a><a href="#contacto" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-contacto">Contacto</a></div>
           </div>
           <div className="flex flex-col justify-between gap-4 pt-6 text-[10px] text-[#747987] sm:flex-row"><p>© {new Date().getFullYear()} M&A Abogados · Consorcio Jurídico</p><p className="mono text-[8px]">Hecho con rigor</p></div>
           <img src={emblemReference} alt="" className="sr-only" aria-hidden="true" />

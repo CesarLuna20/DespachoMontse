@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 40 32% 94%;
+  --foreground: 224 29% 14%;
+  --border: 38 17% 79%;
+  --input: 38 17% 79%;
+  --ring: 42 57% 52%;
+  --card: 40 32% 94%;
+  --card-foreground: 224 29% 14%;
+  --card-border: 38 17% 79%;
+  --popover: 39 30% 96%;
+  --popover-foreground: 224 29% 14%;
+  --primary: 224 29% 14%;
+  --primary-foreground: 40 32% 94%;
+  --secondary: 36 24% 87%;
+  --secondary-foreground: 224 29% 14%;
+  --muted: 36 22% 88%;
+  --muted-foreground: 222 12% 40%;
+  --accent: 42 57% 52%;
+  --accent-foreground: 224 29% 14%;
+  --destructive: 4 64% 47%;
+  --destructive-foreground: 40 32% 94%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Playfair Display', Georgia, serif;
+  --app-font-mono: 'DM Mono', monospace;
+  --radius: 0.25rem;
+  --shadow-sm: 0 8px 22px rgba(30, 34, 48, .08);
+}
+
+.dark {
+  --background: 224 29% 14%;
+  --foreground: 40 32% 94%;
+  --border: 224 18% 30%;
+  --input: 224 18% 30%;
+  --card: 224 25% 18%;
+  --card-foreground: 40 32% 94%;
+  --card-border: 224 18% 30%;
+  --primary: 42 57% 52%;
+  --primary-foreground: 224 29% 14%;
+  --secondary: 224 18% 24%;
+  --secondary-foreground: 40 32% 94%;
+  --muted: 224 18% 24%;
+  --muted-foreground: 40 14% 70%;
+  --accent: 42 57% 52%;
+  --accent-foreground: 224 29% 14%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply antialiased bg-background text-foreground;
+    font-family: var(--app-font-sans);
+    margin: 0;
+  }
+  ::selection { background: hsl(var(--accent)); color: hsl(var(--primary)); }
+  button, a, input, textarea { font: inherit; }
+}
+
+@keyframes introLine { from { stroke-dashoffset: 900; opacity: 0; } 10% { opacity: 1; } to { stroke-dashoffset: 0; opacity: 1; } }
+@keyframes introScale { from { transform: scale(.82); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes introFade { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes grain { 0%, 100% { transform: translate(0,0) } 25% { transform: translate(1%, -1%) } 50% { transform: translate(-1%, 1%) } 75% { transform: translate(1%, 1%) } }
+
+.site-noise::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  animation: grain .22s steps(2) infinite;
+}
+
+.display { font-family: var(--app-font-serif); }
+.mono { font-family: var(--app-font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.eyebrow { font-family: var(--app-font-mono); font-size: .67rem; letter-spacing: .18em; text-transform: uppercase; color: hsl(var(--accent)); }
+.section-rule { height: 1px; background: hsl(var(--border)); }
+.focus-ring:focus-visible { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
+
+.intro-screen { animation: introFade .8s cubic-bezier(.76,0,.24,1) 2.55s forwards; }
+.intro-mark { animation: introScale 1.1s cubic-bezier(.16,1,.3,1) .15s both; }
+.intro-trace { stroke-dasharray: 900; stroke-dashoffset: 900; animation: introLine 1.8s cubic-bezier(.65,0,.35,1) .4s forwards; }
+.intro-trace-delay { stroke-dasharray: 900; stroke-dashoffset: 900; animation: introLine 1.8s cubic-bezier(.65,0,.35,1) .72s forwards; }
+.intro-wordmark { animation: riseIn .9s cubic-bezier(.16,1,.3,1) 1.65s both; }
+.hero-content { animation: riseIn 1s cubic-bezier(.16,1,.3,1) 2.85s both; }
+
+.nav-link { position: relative; }
+.nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: hsl(var(--accent)); transform: scaleX(0); transform-origin: right; transition: transform .35s ease; }
+.nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+.practice-card { transition: transform .45s cubic-bezier(.16,1,.3,1), background-color .35s ease, border-color .35s ease; }
+.practice-card:hover { transform: translateY(-6px); background-color: hsl(var(--primary)); border-color: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+.practice-card:hover .card-number, .practice-card:hover .card-copy { color: hsl(var(--muted-foreground)); }
+.gold-arrow { transition: transform .35s ease; }
+.practice-card:hover .gold-arrow { transform: translate(4px, -4px); }
+.reveal { animation: riseIn .8s cubic-bezier(.16,1,.3,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .intro-screen { display: none; }
+}
+
+@media (max-width: 767px) {
+  .intro-screen { animation-delay: 1.7s; }
+  .hero-content { animation-delay: 1.9s; }
+}

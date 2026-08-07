@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "M&A Abogados"
+description = "Landing page editorial y cinematográfica para M&A Abogados, un consorcio jurídico que comunica precisión, autoridad y acompañamiento cercano. Incluye una animación de apertura donde las letras M y A se forman para revelar el emblema de la firma, una presentación de servicios y contacto frontend-only."
+version = "1.0.0"
+id = "artifacts/ma-abogados"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24637
+
+[services.development]
+run = "pnpm --filter @workspace/ma-abogados run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ma-abogados", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ma-abogados/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24637"
+BASE_PATH = "/"

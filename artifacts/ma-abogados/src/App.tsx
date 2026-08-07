@@ -79,7 +79,7 @@ function App() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     setSent(false);
     setSubmitIntro(true);
-    window.setTimeout(completeSubmission, 1955);
+    window.setTimeout(completeSubmission, 3100);
   };
 
   return (

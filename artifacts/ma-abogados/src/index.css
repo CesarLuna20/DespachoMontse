@@ -120,6 +120,11 @@
 .intro-trace-delay { stroke-dasharray: 900; stroke-dashoffset: 900; animation: introLine 2.07s cubic-bezier(.65,0,.35,1) .83s forwards; }
 .intro-wordmark { animation: riseIn 1.04s cubic-bezier(.16,1,.3,1) 1.9s both; }
 .hero-content { animation: riseIn 1.15s cubic-bezier(.16,1,.3,1) 3.28s both; }
+.submit-intro { animation-duration: .46s; animation-delay: 1.465s; }
+.submit-intro .intro-mark { animation-duration: .635s; animation-delay: .085s; }
+.submit-intro .intro-trace { animation-duration: 1.035s; animation-delay: .23s; }
+.submit-intro .intro-trace-delay { animation-duration: 1.035s; animation-delay: .415s; }
+.submit-intro .intro-wordmark { animation-duration: .52s; animation-delay: .95s; }
 
 .nav-link { position: relative; }
 .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: hsl(var(--accent)); transform: scaleX(0); transform-origin: right; transition: transform .35s ease; }
@@ -140,4 +145,5 @@
 @media (max-width: 767px) {
   .intro-screen { animation-delay: 1.96s; }
   .hero-content { animation-delay: 2.19s; }
+  .submit-intro { animation-delay: 1.465s; }
 }

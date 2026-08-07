@@ -213,6 +213,27 @@ function App() {
             <div><Monogram light /><p className="mt-7 max-w-[250px] text-[12px] leading-[1.65] text-[#9ea2ab]">Claridad legal para decisiones que importan.</p></div>
             <div className="grid grid-cols-2 gap-x-16 gap-y-4 text-[12px] text-[#b6b8bd]"><a href="#firma" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-firma">La firma</a><a href="#practicas" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-practicas">Áreas de práctica</a><a href="#metodo" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-metodo">Nuestro método</a><a href="#contacto" className="focus-ring hover:text-[#e4bf6a]" data-testid="link-footer-contacto">Contacto</a></div>
           </div>
+          <div className="grid gap-8 border-b border-[#3c4250] py-10 md:grid-cols-[.65fr_1.35fr] md:items-center">
+            <div>
+              <p className="eyebrow !text-[#e4bf6a]">Dónde encontrarnos</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=19.985538%2C-102.284119" target="_blank" rel="noreferrer" className="focus-ring mt-4 block max-w-[330px] text-[13px] leading-[1.7] text-[#e6e0d2] transition-colors hover:text-[#e4bf6a]" data-testid="link-address">
+                C. Hidalgo Sur 145-int 16<br />
+                Centro, 59600 Zamora de Hidalgo, Michoacán
+              </a>
+              <p className="mono mt-4 text-[9px] text-[#747987]">19.985538, -102.284119</p>
+            </div>
+            <div className="overflow-hidden border border-[#3c4250] bg-[#252b3b]">
+              <iframe
+                title="Ubicación de M&A Abogados en Zamora de Hidalgo"
+                src="https://www.google.com/maps?q=19.985538%2C-102.284119&z=17&output=embed"
+                className="h-[230px] w-full grayscale-[.35] contrast-[.9] md:h-[250px]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                data-testid="map-location"
+              />
+            </div>
+          </div>
           <div className="flex flex-col justify-between gap-4 pt-6 text-[10px] text-[#747987] sm:flex-row"><p>© {new Date().getFullYear()} M&A Abogados · Consorcio Jurídico</p><p className="mono text-[8px]">Hecho con rigor</p></div>
           <img src={emblemReference} alt="" className="sr-only" aria-hidden="true" />
         </div>

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1786202998997,
@@ -28,6 +28,10 @@
                 {
                     "date": 1786203999603,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import express, { type Express } from \"express\";\r\n import cors from \"cors\";\r\n-import pinoHttp = require(\"pino-http\");\r\n+import { pinoHttp } from \"pino-http\";\r\n import router from \"./routes\";\r\n import { logger } from \"./lib/logger\";\r\n \r\n const app: Express = express();\r\n"
+                },
+                {
+                    "date": 1786205013816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import express, { type Express } from \"express\";\r\n import cors from \"cors\";\r\n-import { pinoHttp } from \"pino-http\";\r\n+import pinoHttp from \"pino-http\";\r\n+import type { IncomingMessage, ServerResponse } from \"http\";\r\n import router from \"./routes\";\r\n import { logger } from \"./lib/logger\";\r\n \r\n const app: Express = express();\r\n@@ -9,17 +10,17 @@\n app.use(\r\n   pinoHttp({\r\n     logger,\r\n     serializers: {\r\n-      req(req) {\r\n+      req(req: IncomingMessage & { id?: string }) {\r\n         return {\r\n           id: req.id,\r\n           method: req.method,\r\n           url: req.url?.split(\"?\")[0],\r\n         };\r\n       },\r\n \r\n-      res(res) {\r\n+      res(res: ServerResponse) {\r\n         return {\r\n           statusCode: res.statusCode,\r\n         };\r\n       },\r\n@@ -32,5 +33,7 @@\n app.use(express.urlencoded({ extended: true }));\r\n \r\n app.use(\"/api\", router);\r\n \r\n+\r\n+\r\n export default app;\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1786202998997,

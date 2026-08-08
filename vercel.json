@@ -1,0 +1,11 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm --workspace @workspace/ma-abogados run build",
+  "outputDirectory": "artifacts/ma-abogados/dist/public",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

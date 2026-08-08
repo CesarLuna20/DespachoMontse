@@ -1,0 +1,18 @@
+{
+    "sourceFile": "artifacts/api-server/tsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1786203783249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1786203783249,
+            "name": "Commit-0",
+            "content": "{\r\n  \"extends\": \"../../tsconfig.base.json\",\r\n  \"compilerOptions\": {\r\n    \"incremental\": true,\r\n    \"tsBuildInfoFile\": \".tsbuildinfo\",\r\n    \"outDir\": \"dist\",\r\n    \"rootDir\": \"src\",\r\n    \"types\": [\"node\"],\r\n    \"module\": \"NodeNext\",\r\n    \"moduleResolution\": \"NodeNext\",\r\n    \"esModuleInterop\": true,\r\n    \"allowSyntheticDefaultImports\": true\r\n  },\r\n  \"include\": [\"src\"],\r\n  \"references\": [\r\n    {\r\n      \"path\": \"../../lib/db\"\r\n    },\r\n    {\r\n      \"path\": \"../../lib/api-zod\"\r\n    }\r\n  ]\r\n}"
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1786202998997,
@@ -16,6 +16,14 @@
                 {
                     "date": 1786203297278,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,25 @@\n import express, { type Express } from \"express\";\r\n import cors from \"cors\";\r\n-import pinoHttp, { type CustomAttributeKeys } from \"pino-http\";\r\n+import pinoHttp from \"pino-http\";\r\n import type { IncomingMessage, ServerResponse } from \"http\";\r\n import router from \"./routes\";\r\n import { logger } from \"./lib/logger\";\r\n \r\n const app: Express = express();\r\n \r\n-// Manejo de compatibilidad para la importación ESM/CommonJS de pino-http\r\n-const pinoMiddleware = typeof pinoHttp === \"function\" ? pinoHttp : (pinoHttp as any).default;\r\n-\r\n app.use(\r\n-  pinoMiddleware({\r\n+  pinoHttp({\r\n     logger,\r\n     serializers: {\r\n       req(req: IncomingMessage) {\r\n         return {\r\n-          id: (req as any).id,\r\n+          id: (req as IncomingMessage & { id?: string }).id,\r\n           method: req.method,\r\n           url: req.url?.split(\"?\")[0],\r\n         };\r\n       },\r\n+\r\n       res(res: ServerResponse) {\r\n         return {\r\n           statusCode: res.statusCode,\r\n         };\r\n"
+                },
+                {
+                    "date": 1786203715053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import express, { type Express } from \"express\";\r\n import cors from \"cors\";\r\n import pinoHttp from \"pino-http\";\r\n-import type { IncomingMessage, ServerResponse } from \"http\";\r\n import router from \"./routes\";\r\n import { logger } from \"./lib/logger\";\r\n \r\n const app: Express = express();\r\n@@ -10,21 +9,16 @@\n app.use(\r\n   pinoHttp({\r\n     logger,\r\n     serializers: {\r\n-      req(req: IncomingMessage) {\r\n-        return {\r\n-          id: (req as IncomingMessage & { id?: string }).id,\r\n-          method: req.method,\r\n-          url: req.url?.split(\"?\")[0],\r\n-        };\r\n-      },\r\n-\r\n-      res(res: ServerResponse) {\r\n-        return {\r\n-          statusCode: res.statusCode,\r\n-        };\r\n-      },\r\n+      req: (req) => ({\r\n+        id: req.id,\r\n+        method: req.method,\r\n+        url: req.url?.split(\"?\")[0],\r\n+      }),\r\n+      res: (res) => ({\r\n+        statusCode: res.statusCode,\r\n+      }),\r\n     },\r\n   }),\r\n );\r\n \r\n"
+                },
+                {
+                    "date": 1786203796582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import express, { type Express } from \"express\";\r\n import cors from \"cors\";\r\n-import pinoHttp from \"pino-http\";\r\n+import pinoHttp = require(\"pino-http\");\r\n import router from \"./routes\";\r\n import { logger } from \"./lib/logger\";\r\n \r\n const app: Express = express();\r\n@@ -9,16 +9,21 @@\n app.use(\r\n   pinoHttp({\r\n     logger,\r\n     serializers: {\r\n-      req: (req) => ({\r\n-        id: req.id,\r\n-        method: req.method,\r\n-        url: req.url?.split(\"?\")[0],\r\n-      }),\r\n-      res: (res) => ({\r\n-        statusCode: res.statusCode,\r\n-      }),\r\n+      req(req) {\r\n+        return {\r\n+          id: req.id,\r\n+          method: req.method,\r\n+          url: req.url?.split(\"?\")[0],\r\n+        };\r\n+      },\r\n+\r\n+      res(res) {\r\n+        return {\r\n+          statusCode: res.statusCode,\r\n+        };\r\n+      },\r\n     },\r\n   }),\r\n );\r\n \r\n"
                 }
             ],
             "date": 1786202998997,

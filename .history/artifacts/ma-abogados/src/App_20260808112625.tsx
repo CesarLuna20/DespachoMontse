@@ -117,7 +117,7 @@ function App() {
           <div className="hero-content relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-10">
             <div className="grid items-end gap-12 md:grid-cols-[1.1fr_.9fr]">
               <div>
-                <p className="eyebrow mb-7">M&A abogados · Consorcio Jurídico en Zamora</p>
+                <p className="eyebrow mb-7">M&A abogados en Zamora</p>
                 <h1 className="sr-only">Despacho de abogados en Zamora, Michoacán</h1>
                 <p aria-hidden="true" className="display max-w-[790px] text-[clamp(3.8rem,9.5vw,8.5rem)] leading-[.88] tracking-[-.055em] text-[#1e2435]">La ley,<br /><em className="text-[#9a702b]">en claro.</em></p>
                 <p className="mt-9 max-w-[460px] text-[15px] leading-[1.75] text-[#545765]">Asesoría y representación legal en Zamora, Michoacán, con rigor, criterio y una forma de acompañar que se siente humana.</p>

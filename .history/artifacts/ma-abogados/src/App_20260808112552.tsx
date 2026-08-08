@@ -47,7 +47,7 @@ function IntroScreen({ onSkip, fast = false }: { onSkip: () => void; fast?: bool
           <path className="intro-trace-delay" d="M150 20v116M150 54 103 180M150 54l47 126M96 101c36 8 72 8 108 0M77 96l26 3-15 39c-5 12-23 12-28 0L45 99l32-3ZM223 96l26 3-15 39c-5 12-23 12-28 0l-15-39 32-3Z" fill="none" stroke="#e6e0d2" strokeWidth="3.5" strokeLinejoin="round" />
         </svg>
         <div className="intro-wordmark mt-5 text-center">
-          <p className="display text-3xl tracking-[.12em]">M&A ABOGADOS</p>
+          <p className="display text-3xl tracking-[.12em]">M&A ABOGADOS · Consorcio Jurídico</p>
           <p className="mono mt-2 text-[10px] text-[#b8b9b2]">Consorcio jurídico</p>
         </div>
       </div>
@@ -117,7 +117,7 @@ function App() {
           <div className="hero-content relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-10">
             <div className="grid items-end gap-12 md:grid-cols-[1.1fr_.9fr]">
               <div>
-                <p className="eyebrow mb-7">M&A abogados · Consorcio Jurídico en Zamora</p>
+                <p className="eyebrow mb-7">M&A abogados en Zamora</p>
                 <h1 className="sr-only">Despacho de abogados en Zamora, Michoacán</h1>
                 <p aria-hidden="true" className="display max-w-[790px] text-[clamp(3.8rem,9.5vw,8.5rem)] leading-[.88] tracking-[-.055em] text-[#1e2435]">La ley,<br /><em className="text-[#9a702b]">en claro.</em></p>
                 <p className="mt-9 max-w-[460px] text-[15px] leading-[1.75] text-[#545765]">Asesoría y representación legal en Zamora, Michoacán, con rigor, criterio y una forma de acompañar que se siente humana.</p>

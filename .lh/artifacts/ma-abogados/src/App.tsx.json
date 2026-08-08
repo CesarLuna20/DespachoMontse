@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1786209889176,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1786209952295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n           <path className=\"intro-trace\" d=\"M20 180V20h34l96 118L246 20h34v160M38 180h46M216 180h46M42 198h58M200 198h58\" fill=\"none\" stroke=\"#e4bf6a\" strokeWidth=\"5\" strokeLinecap=\"square\" />\r\n           <path className=\"intro-trace-delay\" d=\"M150 20v116M150 54 103 180M150 54l47 126M96 101c36 8 72 8 108 0M77 96l26 3-15 39c-5 12-23 12-28 0L45 99l32-3ZM223 96l26 3-15 39c-5 12-23 12-28 0l-15-39 32-3Z\" fill=\"none\" stroke=\"#e6e0d2\" strokeWidth=\"3.5\" strokeLinejoin=\"round\" />\r\n         </svg>\r\n         <div className=\"intro-wordmark mt-5 text-center\">\r\n-          <p className=\"display text-3xl tracking-[.12em]\">M&A ABOGADOS · Consorcio Jurídico en Zamora Michoacan</p>\r\n+          <p className=\"display text-3xl tracking-[.12em]\">M&A ABOGADOS · Consorcio Jurídico</p>\r\n           <p className=\"mono mt-2 text-[10px] text-[#b8b9b2]\">Consorcio jurídico</p>\r\n         </div>\r\n       </div>\r\n       <div className=\"mono absolute bottom-8 left-6 text-[9px] text-[#747a86]\">Claridad que protege</div>\r\n"
+                },
+                {
+                    "date": 1786209985774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n           <path className=\"intro-trace\" d=\"M20 180V20h34l96 118L246 20h34v160M38 180h46M216 180h46M42 198h58M200 198h58\" fill=\"none\" stroke=\"#e4bf6a\" strokeWidth=\"5\" strokeLinecap=\"square\" />\r\n           <path className=\"intro-trace-delay\" d=\"M150 20v116M150 54 103 180M150 54l47 126M96 101c36 8 72 8 108 0M77 96l26 3-15 39c-5 12-23 12-28 0L45 99l32-3ZM223 96l26 3-15 39c-5 12-23 12-28 0l-15-39 32-3Z\" fill=\"none\" stroke=\"#e6e0d2\" strokeWidth=\"3.5\" strokeLinejoin=\"round\" />\r\n         </svg>\r\n         <div className=\"intro-wordmark mt-5 text-center\">\r\n-          <p className=\"display text-3xl tracking-[.12em]\">M&A ABOGADOS · Consorcio Jurídico</p>\r\n+          <p className=\"display text-3xl tracking-[.12em]\">M&A ABOGADOS</p>\r\n           <p className=\"mono mt-2 text-[10px] text-[#b8b9b2]\">Consorcio jurídico</p>\r\n         </div>\r\n       </div>\r\n       <div className=\"mono absolute bottom-8 left-6 text-[9px] text-[#747a86]\">Claridad que protege</div>\r\n"
+                },
+                {
+                    "date": 1786210045775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,9 +116,9 @@\n           <div className=\"absolute right-[16%] top-[42%] hidden h-[1px] w-[260px] bg-[#c2bdaa] md:block\" />\r\n           <div className=\"hero-content relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-10\">\r\n             <div className=\"grid items-end gap-12 md:grid-cols-[1.1fr_.9fr]\">\r\n               <div>\r\n-                <p className=\"eyebrow mb-7\">M&A abogados en Zamora</p>\r\n+                <p className=\"eyebrow mb-7\">M&A abogados · Consorcio Jurídico en Zamora</p>\r\n                 <h1 className=\"sr-only\">Despacho de abogados en Zamora, Michoacán</h1>\r\n                 <p aria-hidden=\"true\" className=\"display max-w-[790px] text-[clamp(3.8rem,9.5vw,8.5rem)] leading-[.88] tracking-[-.055em] text-[#1e2435]\">La ley,<br /><em className=\"text-[#9a702b]\">en claro.</em></p>\r\n                 <p className=\"mt-9 max-w-[460px] text-[15px] leading-[1.75] text-[#545765]\">Asesoría y representación legal en Zamora, Michoacán, con rigor, criterio y una forma de acompañar que se siente humana.</p>\r\n                 <div className=\"mt-10 flex flex-wrap items-center gap-5\">\r\n"
                 }
             ],
             "date": 1786209889176,

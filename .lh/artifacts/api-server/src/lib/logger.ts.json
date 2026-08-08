@@ -1,0 +1,18 @@
+{
+    "sourceFile": "artifacts/api-server/src/lib/logger.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1786204018460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1786204018460,
+            "name": "Commit-0",
+            "content": "import pino from \"pino\";\r\n\r\nconst isProduction = process.env.NODE_ENV === \"production\";\r\n\r\nexport const logger = pino({\r\n  level: process.env.LOG_LEVEL ?? \"info\",\r\n\r\n  redact: [\r\n    \"req.headers.authorization\",\r\n    \"req.headers.cookie\",\r\n    \"res.headers['set-cookie']\",\r\n  ],\r\n\r\n  ...(isProduction\r\n    ? {}\r\n    : {\r\n        transport: {\r\n          target: \"pino-pretty\",\r\n          options: {\r\n            colorize: true,\r\n          },\r\n        },\r\n      }),\r\n});"
+        }
+    ]
+}
